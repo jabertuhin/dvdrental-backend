@@ -18,12 +18,12 @@ repos:
     - id: mypy
       additional_dependencies: [tokenize-rt==3.2.0]
       stages: [commit]
-  - repo: local
-    hooks:
-    - id: tests
-      name: run tests
-      entry: pytest -v
-      language: system
-      always_run: true
-      types: [python]
-      stages: [push]
+#  - repo: local
+#    hooks:
+#    - id: tests
+#      name: run tests
+#      entry: pytest -v
+#      language: system
+#      always_run: true
+#      types: [python]
+#      stages: [push]
