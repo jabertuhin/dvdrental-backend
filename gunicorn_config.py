@@ -11,5 +11,5 @@ worker_class = 'uvicorn.workers.UvicornWorker'
 
 
 errorlog = '-'
-loglevel = 'INFO'
+loglevel = os.getenv("LOG_LEVEL", 'INFO')
 accesslog = '-'
