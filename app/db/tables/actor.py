@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, TIMESTAMP, func, Sequence
 from sqlalchemy.dialects.postgresql import VARCHAR
 
-from app.db.base_class import BaseDBModel
+from app.db.base_db_model import BaseDBModel
 
 
 class Actor(BaseDBModel):
