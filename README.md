@@ -10,6 +10,18 @@ I used a [sample database](https://www.postgresqltutorial.com/load-postgresql-sa
 **NOTE:** This is not a totally completed application. This is an implementation to check my understanding of the concept.
 Even then I tried to follow many practices and will try to do other experiments here.
 
+## Examples(Screenshots):
+
+**Swagger Overview**
+![swagger_overview](./assets/swagger-overview.png)
+
+**/actors Endpoint**
+![swagger_overview_actors](./assets/actors.png)
+
+**/actors/{actor_id} Endpoint**
+![swagger_overview_actor](./assets/actors-actor-id.png)
+
+
 ### TODO List:
 [] ...
 
