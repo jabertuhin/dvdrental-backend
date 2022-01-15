@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 
 class ActorDto(BaseModel):
-    actor_id: int
     first_name: str
     last_name: str
 
