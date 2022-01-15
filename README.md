@@ -10,6 +10,24 @@ I used a [sample database](https://www.postgresqltutorial.com/load-postgresql-sa
 **NOTE:** This is not a totally completed application. This is an implementation to check my understanding of the concept.
 Even then I tried to follow many practices and will try to do other experiments here.
 
+### "/app" directory structure.
+```bash
+.
+├── db
+│   ├── repositories
+│   ├── schemas
+│   └── tables
+├── dtos
+│   ├── requests
+│   └── responses
+├── exceptions
+│   ├── exception_messages
+│   └── services
+├── routes
+├── services
+│   ├── implementations
+└── utils
+```
 ## Examples(Screenshots):
 
 **Swagger Overview**
