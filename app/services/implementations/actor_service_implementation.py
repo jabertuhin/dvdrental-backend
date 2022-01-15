@@ -17,12 +17,13 @@ class ActorServiceImplementation(ActorService):
 
     async def get_all_actors(self) -> ActorsDto:
         actors = await self._actor_repository.get_all()
-        return ActorsDto(actors=actors)
+        actor_dtos = [ActorDto(first_name=actor.first_name, last_name=actor.last_name) for actor in actors]
+        return ActorsDto(actors=actor_dtos)
 
     async def get_actor(self, actor_id: int) -> ActorDto:
         actor = await self._actor_repository.get_by_id(actor_id)
         if actor:
-            return actor
+            return ActorDto(first_name=actor.first_name, last_name=actor.last_name)
         raise ActorServiceException(
             status_code=status.HTTP_404_NOT_FOUND,
             message=ACTOR_ID_NOT_AVAILABLE_EXCEPTION_MESSAGE.format(actor_id)
