@@ -5,17 +5,16 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.repositories.base_repository import BaseRepository
 from app.db.schemas.actor_schema import ActorSchema
-from app.db.session import async_session
 from app.db.tables.actor import Actor
+from app.db.utils import get_db_session
 
 
 class ActorRepository(BaseRepository):
     def __init__(
             self,
-            db_session: AsyncSession = Depends(async_session),
-            *args,
-            **kwargs) -> None:
-        super().__init__(db_session, *args, **kwargs)
+            db_session: AsyncSession = Depends(get_db_session)
+    ) -> None:
+        super().__init__(db_session)
 
     @property
     def _table(self) -> Type[Actor]:
