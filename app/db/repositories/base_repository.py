@@ -23,13 +23,13 @@ class BaseRepository(ABC):
     def _schema(self) -> Type[BaseSchema]:
         raise NotImplementedError()
 
-    async def get_all(self) -> List[Type[BaseSchema]]:
+    async def get_all(self) -> List[BaseSchema]:
         query = select(self._table)
         entries = (await self._db_session.execute(query)).scalars()
 
         return [self._schema.from_orm(entry) for entry in entries]
 
-    async def get_by_id(self, entity_id: int) -> Optional[Type[BaseSchema]]:
+    async def get_by_id(self, entity_id: int) -> Optional[BaseSchema]:
         entity = await self._db_session.get(self._table, entity_id)
         if entity:
             return self._schema.from_orm(entity)
