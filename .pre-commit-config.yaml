@@ -7,6 +7,9 @@ repos:
     - id: no-commit-to-branch
     - id: check-yaml
     - id: requirements-txt-fixer
+    - id: end-of-file-fixer
+    - id: name-tests-test
+      args: ['--django']
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4
     hooks:
