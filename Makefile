@@ -1,10 +1,11 @@
 # Tutorial: https://makefiletutorial.com/#top
 
 server:
-	  gunicorn app.main:app -c gunicorn_config.py
+	gunicorn app.main:app -c gunicorn_config.py
 
 dev_setup:
-	 pip3 install -r requirements.dev.txt
+	python -m pip install --upgrade pip
+	pip3 install -r requirements.dev.txt
 
 test:
 	pytest
