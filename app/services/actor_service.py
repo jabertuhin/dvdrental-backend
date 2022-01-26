@@ -1,8 +1,7 @@
 from app.dtos.responses.actor import ActorsDto, ActorDto
-from app.services.base_service import BaseService
 
 
-class ActorService(BaseService):
+class ActorService:
     async def get_all_actors(self) -> ActorsDto:
         raise NotImplementedError()
 
