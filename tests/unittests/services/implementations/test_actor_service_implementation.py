@@ -6,7 +6,9 @@ from app.db.repositories.actor_repository import ActorRepository
 from app.db.schemas.actor_schema import ActorSchema
 from app.dtos.responses.actor import ActorDto, ActorsDto
 from app.exceptions.services.actor_service_exceptions import ActorServiceException
-from app.services.implementations.actor_service_implementation import ActorServiceImplementation
+from app.services.implementations.actor_service_implementation import (
+    ActorServiceImplementation,
+)
 
 
 @pytest.fixture
@@ -16,7 +18,9 @@ def mock_repository() -> AsyncMock:
 
 
 @pytest.mark.asyncio
-async def test_get_all_actors_when_actors_are_available_should_return_ActorsDto(mock_repository):
+async def test_get_all_actors_when_actors_are_available_should_return_ActorsDto(
+    mock_repository,
+):
     mock_repository.get_all.return_value = [
         ActorSchema(actor_id=1, first_name="A", last_name="B"),
         ActorSchema(actor_id=2, first_name="C", last_name="D"),
@@ -40,7 +44,9 @@ async def test_get_all_actors_when_actors_are_available_should_return_ActorsDto(
 
 @pytest.mark.asyncio
 async def test_get_actor_when_actor_id_is_valid_should_return_ActorDto(mock_repository):
-    mock_repository.get_by_id.return_value = ActorSchema(actor_id=1, first_name="A", last_name="B")
+    mock_repository.get_by_id.return_value = ActorSchema(
+        actor_id=1, first_name="A", last_name="B"
+    )
     expected = ActorDto(first_name="A", last_name="B")
     actor_service = ActorServiceImplementation(mock_repository)
 
@@ -52,7 +58,9 @@ async def test_get_actor_when_actor_id_is_valid_should_return_ActorDto(mock_repo
 
 
 @pytest.mark.asyncio
-async def test_get_actor_when_actor_id_is_unavailable_should_raise_ActorServiceException(mock_repository):
+async def test_get_actor_when_actor_id_is_unavailable_should_raise_ActorServiceException(
+    mock_repository,
+):
     mock_repository.get_by_id.return_value = None
     actor_service = ActorServiceImplementation(mock_repository)
 

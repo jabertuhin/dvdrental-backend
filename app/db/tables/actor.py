@@ -5,8 +5,16 @@ from app.db.base_db_model import BaseDBModel
 
 
 class Actor(BaseDBModel):
-    actor_id = Column(Integer, Sequence('actor_actor_id_seq'),
-                      primary_key=True, nullable=False, unique=True, autoincrement=True)
+    actor_id = Column(
+        Integer,
+        Sequence("actor_actor_id_seq"),
+        primary_key=True,
+        nullable=False,
+        unique=True,
+        autoincrement=True,
+    )
     first_name = Column(VARCHAR(45), nullable=False)
     last_name = Column(VARCHAR(45), nullable=False)
-    last_update = Column(TIMESTAMP, server_default=func.now(), onupdate=func.current_timestamp())
+    last_update = Column(
+        TIMESTAMP, server_default=func.now(), onupdate=func.current_timestamp()
+    )

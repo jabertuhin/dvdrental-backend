@@ -10,7 +10,9 @@ from app.exceptions.services.base_service_exception import BaseServiceException
 custom_exceptions = [ActorServiceException]
 
 
-def custom_exception_handler(request: Request, exc: type[BaseServiceException]) -> JSONResponse:
+def custom_exception_handler(
+    request: Request, exc: type[BaseServiceException]
+) -> JSONResponse:
     return exc.to_json_response()
 
 

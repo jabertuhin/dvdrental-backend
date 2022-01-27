@@ -10,10 +10,7 @@ from app.db.utils import get_db_session
 
 
 class ActorRepository(BaseRepository):
-    def __init__(
-            self,
-            db_session: AsyncSession = Depends(get_db_session)
-    ) -> None:
+    def __init__(self, db_session: AsyncSession = Depends(get_db_session)) -> None:
         super().__init__(db_session)
 
     @property

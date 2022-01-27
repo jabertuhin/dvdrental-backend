@@ -10,5 +10,5 @@ class BaseServiceException(Exception):
     def to_json_response(self) -> JSONResponse:
         return JSONResponse(
             status_code=self.status_code,
-            content=jsonable_encoder({"message": self.message})
+            content=jsonable_encoder({"message": self.message}),
         )

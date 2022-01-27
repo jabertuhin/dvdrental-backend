@@ -7,9 +7,9 @@ backlog = os.getenv("BACKLOG_NUM", 2048)
 
 
 workers = os.getenv("WORKER_NUM", 2)
-worker_class = 'uvicorn.workers.UvicornWorker'
+worker_class = "uvicorn.workers.UvicornWorker"
 
 
-errorlog = '-'
-loglevel = os.getenv("LOG_LEVEL", 'INFO')
-accesslog = '-'
+errorlog = "-"
+loglevel = os.getenv("LOG_LEVEL", "INFO")
+accesslog = "-"
