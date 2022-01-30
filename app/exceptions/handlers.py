@@ -1,3 +1,4 @@
+from typing import Type
 from fastapi.applications import FastAPI
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
@@ -11,7 +12,7 @@ custom_exceptions = [ActorServiceException]
 
 
 def custom_exception_handler(
-    request: Request, exc: type[BaseServiceException]
+    request: Request, exc: Type[BaseServiceException]
 ) -> JSONResponse:
     return exc.to_json_response()
 
